@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<h2>Your order is deleted</h2>
+<form action="/client/deleteOrder" method="post">
+    <input type="hidden" th:value="${order_id}" name="order_id">
+    <button type="submit" value="Delete" > </button>
+</form>
+
+</body>
+</html>

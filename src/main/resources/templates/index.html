@@ -6,8 +6,9 @@
 </head>
 <body>
 <h1>Welcome to your greatest trip ever</h1>
-<form action="/home" method="get"></form>
+<form th:action="@{/home/login}" method="post">
 <input type="text" name="login" placeholder="Please enter login here">
 <input type="submit" value="Navigate to home page">
+</form>
 </body>
 </html>

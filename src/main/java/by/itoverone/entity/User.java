@@ -5,6 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     private int id;
     private String login;

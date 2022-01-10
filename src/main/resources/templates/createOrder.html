@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Here you can create order to visit the place of your DREAM!!!</title>
+</head>
+
+<body>
+<h1>Here you can create order to visit the place of your DREAM!!!</h1>
+
+<form th:action="@{/createOrder}" method="post">
+    <input type="text" name="tourType" placeholder="Please choose the type of tour here">
+    <input type="submit" value="click to choose the type Of tour">
+    <input type="text" name="typeOfPayment" placeholder="Please choose how you can pay here">
+    <input type="submit" value="click to pay">
+
+</form>
+
+</body>
+</html>

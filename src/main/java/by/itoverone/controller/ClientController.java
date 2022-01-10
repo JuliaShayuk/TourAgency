@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,38 @@ public class ClientController {
     public String home() {
 
         return "clientHome";
+    }
+
+    @PostMapping("/createOrder")
+    public String createOrder(@RequestBody MultiValueMap<String, String> params, Model model, HttpSession session){
+        String tourType = params.getFirst("tourType");
+        String typeOfPayment = params.getFirst("typeOfPayment");
+        Client client = (Client)session.getAttribute("client");
+        clientService.createOrder(tourType, typeOfPayment, client);
+        model.addAttribute("message", "Your dream soon will come true! Thank you for creating order!");
+        return "clientHome";
+
+    }
+
+    @GetMapping("/createOrder")
+    public String toCreateOrder(){
+        return "createOrder";
+    }
+
+    @GetMapping("/deleteOrder")
+    public String toDeleteOrder(){
+        return "deletedOrder";
+
+    }
+    @PostMapping("/deleteOrder")
+    public String deleteOrder(@RequestBody MultiValueMap<String, String> params, Model model, HttpSession session){
+        final Integer order_id = Integer.valueOf(params.getFirst("order_id"));
+        Client client = (Client)session.getAttribute("client");
+        clientService.deletedOrders(client, order_id);
+        model.addAttribute("message", "Your order deleted!");
+
+        return "clientHome";
+
     }
 
 

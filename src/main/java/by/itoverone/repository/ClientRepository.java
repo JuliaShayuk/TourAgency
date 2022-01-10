@@ -11,6 +11,6 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
     @Override
     Optional<Client> findById(Integer id);
 
-    Optional<Client> findByName(String name);
+
 
 }
